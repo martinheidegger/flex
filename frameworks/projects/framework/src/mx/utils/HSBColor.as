@@ -221,7 +221,7 @@ public final class HSBColor
             if (r == max)
                 hue = (g - b) / delta;
             else if (g == max)
-                hue = 2 + (b - r) / delta
+                hue = 2 + (b - r) / delta;
             else if (b == max)
                 hue = 4 + (r - g) / delta;
             hue = hue * 60;

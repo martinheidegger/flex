@@ -203,7 +203,7 @@ public dynamic class OrderedObject extends flash.utils.Proxy
      */
     override flash_proxy function callProperty(name:*, ... rest):*
     {
-        return _item[name].apply(_item, rest)
+        return _item[name].apply(_item, rest);
     }
 
     /**
@@ -222,7 +222,8 @@ public dynamic class OrderedObject extends flash.utils.Proxy
      */
     override flash_proxy function deleteProperty(name:*):Boolean
     {
-        var oldVal:Object = _item[name];
+        _item[name]; // Backwards compatibility: Old code used to get the property
+                     // before deleting it
         var deleted:Boolean = delete _item[name]; 
         
         var deleteIndex:int = -1;

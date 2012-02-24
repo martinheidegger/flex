@@ -20,8 +20,6 @@
 package mx.validators
 {
 
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
 import mx.utils.StringUtil;

@@ -137,16 +137,17 @@ public class DateValidator extends Validator
 		// Resource-backed properties of the validator.
 		var allowedFormatChars:String = validator.allowedFormatChars;
 		var inputFormat:String = validator.inputFormat;
-		var validateAsString:Boolean = validator.validateAsString;
+		var validateAsString:Boolean = validator.validateAsString != null;
 
 		var resourceManager:IResourceManager = ResourceManager.getInstance();
 
 		var validInput:String = DECIMAL_DIGITS + allowedFormatChars;
 		
-		var dateObj:Object = {};
-		dateObj.month = "";
-		dateObj.day = "";
-		dateObj.year = "";
+		var dateObj:Object = {
+			month: "",
+			day: "",
+			year: ""
+		};
 		
 		var dayProp:String = baseField;
 		var yearProp:String = baseField;
@@ -154,11 +155,9 @@ public class DateValidator extends Validator
 
 		var advanceValueCounter:Boolean = true;
 		var monthRequired:Boolean = false;
-		var dayRequired:Boolean = false
+		var dayRequired:Boolean = false;
 		var yearRequired:Boolean = false;
 		var valueIsString:Boolean = false;
-		var foundMonth:Boolean = false;
-		var foundYear:Boolean = false;
 		
 		var objValue:Object;
 		var stringValue:Object;
@@ -203,18 +202,18 @@ public class DateValidator extends Validator
 		// Check if the validator is an object or a string.
 		if (!validateAsString || !valueIsString)
 		{
-    		var baseFieldDot:String = baseField ? baseField + "." : "";
+			var baseFieldDot:String = baseField ? baseField + "." : "";
 			dayProp = baseFieldDot + "day";
 			yearProp = baseFieldDot + "year";
 			monthProp = baseFieldDot + "month";
 			
-            if (validator.required && (!objValue.month || objValue.month == ""))
-            {
-                results.push(new ValidationResult(
+			if (validator.required && (!objValue.month || objValue.month == ""))
+			{
+				results.push(new ValidationResult(
 					true, monthProp,"requiredField",
 					validator.requiredFieldError));
-            }
-            else if (isNaN(objValue.month))
+			}
+			else if (isNaN(objValue.month))
 			{
 				results.push(new ValidationResult(
 					true, monthProp, "wrongMonth",
@@ -225,13 +224,13 @@ public class DateValidator extends Validator
 				monthRequired = true;
 			}
 			
-            if (validator.required && (!objValue.year || objValue.year == ""))
-            {
-                results.push(new ValidationResult(
+			if (validator.required && (!objValue.year || objValue.year == ""))
+			{
+				results.push(new ValidationResult(
 					true, yearProp, "requiredField",
 					validator.requiredFieldError));
-            }
-            else if (isNaN(objValue.year))
+			}
+			else if (isNaN(objValue.year))
 			{
 				results.push(new ValidationResult(
 					true, yearProp, "wrongYear",
@@ -248,12 +247,12 @@ public class DateValidator extends Validator
 			var dayOptional:Boolean = yearRequired && monthRequired;			
 			
 			// If the validator is required and there is no day specified			
-            if (validator.required && dayMissing)
-            {
-                results.push(new ValidationResult(
+			if (validator.required && dayMissing)
+			{
+				results.push(new ValidationResult(
 					true, dayProp, "requiredField",
 					validator.requiredFieldError));
-            }
+			}
 			else if (!dayInvalid) // The day is valid (a number).
 			{
 				dayRequired = true;
@@ -289,8 +288,8 @@ public class DateValidator extends Validator
 						validator.wrongLengthError + " " + inputFormat));
 					return results;
 				}
- 
- 				var j:int = 0;
+
+				var j:int = 0;
 				n = inputFormat.length;
 				for (i = 0; i < n; i++)
 				{
@@ -594,7 +593,7 @@ public class DateValidator extends Validator
 	 */
 	private var _allowedFormatChars:String;
 
-    /**
+	/**
 	 *  @private
 	 */
 	private var allowedFormatCharsOverride:String;
@@ -617,7 +616,7 @@ public class DateValidator extends Validator
 		return _allowedFormatChars;
 	}
 
-    /**
+	/**
 	 *  @private
 	 */
 	public function set allowedFormatChars(value:String):void

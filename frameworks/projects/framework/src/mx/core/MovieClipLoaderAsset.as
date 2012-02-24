@@ -20,7 +20,6 @@
 package mx.core
 {
 
-import flash.display.MovieClip;
 import flash.display.Loader;
 import flash.events.Event;
 import flash.system.ApplicationDomain;

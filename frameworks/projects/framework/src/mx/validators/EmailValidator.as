@@ -21,7 +21,7 @@ package mx.validators
 {
 
 [ResourceBundle("validators")]
-    
+
 /**
  *  The EmailValidator class validates that a String has a single &#64; sign,
  *  a period in the domain name and that the top-level domain suffix has
@@ -126,7 +126,6 @@ public class EmailValidator extends Validator
 		var emailStr:String = String(value);
 		var username:String = "";
 		var domain:String = "";
-		var n:int;
 		var i:int;
 
 		// Find the @
@@ -819,7 +818,7 @@ public class EmailValidator extends Validator
 	 *  @productversion Flex 3
 	 */
 	override protected function doValidation(value:Object):Array
-    {
+	{
 		var results:Array = super.doValidation(value);
 		
 		// Return if there are errors
@@ -828,7 +827,7 @@ public class EmailValidator extends Validator
 		if (results.length > 0 || ((val.length == 0) && !required))
 			return results;
 		else
-		    return EmailValidator.validateEmail(this, value, null);
+			return EmailValidator.validateEmail(this, value, null);
 	}
 }
 

@@ -128,8 +128,6 @@ public class EmbeddedFontRegistry implements IEmbeddedFontRegistry
 	 private static function createEmbeddedFont(key:String):EmbeddedFont
 	 {
 		var fontName:String;
-		var fontBold:Boolean;
-		var fontItalic:Boolean;
 		
 		var index:int = endsWith(key,FontStyle.REGULAR);
 		if (index > 0)

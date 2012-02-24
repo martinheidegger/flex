@@ -56,7 +56,7 @@ public class MediaQueryParser
          WIN: "windows",
          LNX: "linux",
          QNX: "qnx"
-     }
+     };
     
      /**
       *  @private

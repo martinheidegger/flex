@@ -25,7 +25,6 @@ import flash.system.ApplicationDomain;
 import flash.system.SecurityDomain;
 import flash.utils.Dictionary;
 
-import mx.core.FlexVersion;
 import mx.core.IFlexModuleFactory;
 import mx.core.Singleton;
 import mx.core.mx_internal;

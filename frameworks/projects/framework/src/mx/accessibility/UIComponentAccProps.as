@@ -23,7 +23,6 @@ package mx.accessibility
 import flash.accessibility.Accessibility;
 import flash.accessibility.AccessibilityProperties;
 import flash.events.Event;
-import flash.system.ApplicationDomain;
 
 import mx.accessibility.AccImpl;
 import mx.core.UIComponent;

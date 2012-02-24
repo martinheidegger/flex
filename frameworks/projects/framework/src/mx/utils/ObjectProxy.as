@@ -390,7 +390,7 @@ public dynamic class ObjectProxy extends Proxy
      */
     override flash_proxy function callProperty(name:*, ... rest):*
     {
-        return _item[name].apply(_item, rest)
+        return _item[name].apply(_item, rest);
     }
 
     /**

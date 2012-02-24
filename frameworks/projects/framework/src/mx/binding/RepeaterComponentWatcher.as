@@ -20,7 +20,6 @@
 package mx.binding
 {
 
-import flash.events.Event;
 import mx.core.mx_internal;
 
 use namespace mx_internal;

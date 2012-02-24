@@ -22,7 +22,6 @@ package mx.utils
 
 import flash.display.DisplayObject;
 import flash.display.LoaderInfo;
-import flash.events.IEventDispatcher;
 import flash.system.Capabilities;
 import flash.utils.Dictionary;
 
@@ -32,7 +31,6 @@ import mx.core.mx_internal;
 import mx.core.RSLData;
 import mx.events.Request;
 import mx.managers.SystemManagerGlobals;
-import flash.display.Loader;
 
 use namespace mx_internal;
 

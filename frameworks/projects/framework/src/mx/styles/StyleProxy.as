@@ -331,7 +331,7 @@ public class StyleProxy implements IAdvancedStyleClient
      */
     public function styleChanged(styleProp:String):void
     {
-        return _source.styleChanged(styleProp);
+        _source.styleChanged(styleProp);
     }
 
     /**
@@ -397,7 +397,7 @@ public class StyleProxy implements IAdvancedStyleClient
     public function notifyStyleChangeInChildren(styleProp:String,
                                                 recursive:Boolean):void
     {
-        return _source.notifyStyleChangeInChildren(styleProp, recursive);
+        _source.notifyStyleChangeInChildren(styleProp, recursive);
     }
 
     /**
@@ -424,7 +424,7 @@ public class StyleProxy implements IAdvancedStyleClient
      */
     public function registerEffects(effects:Array):void
     {
-        return _source.registerEffects(effects);
+        _source.registerEffects(effects);
     }
 
     //--------------------------------------------------------------------------

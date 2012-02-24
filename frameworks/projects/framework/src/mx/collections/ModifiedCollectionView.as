@@ -20,17 +20,14 @@
 package mx.collections
 {
 	import mx.collections.IViewCursor;
-	import mx.collections.Sort;
 	import flash.events.Event;
 	import mx.collections.ICollectionView;
 	import mx.collections.errors.CollectionViewError;
-	import mx.collections.errors.CursorError;
 	import mx.events.CollectionEvent;
 	import mx.events.CollectionEventKind;
 	import mx.core.mx_internal;
 	import mx.resources.IResourceManager;
 	import mx.resources.ResourceManager;
-	import mx.utils.StringUtil;
 	import mx.events.PropertyChangeEvent;
 	import flash.utils.Dictionary;
 
@@ -451,7 +448,7 @@ package mx.collections
 					adjustedIndex -= mod0.modCount;
 						
 				}
-				else if (isActive(mod0)) // ignoring is true after addItemAction/removeItemAction...though we probably will just remove from list then
+				else if (isActive()) // ignoring is true after addItemAction/removeItemAction...though we probably will just remove from list then
 				{
 					if ((adjustedIndex == mod0.index) && mod0.isRemove)
 					{
@@ -476,7 +473,7 @@ package mx.collections
 			
 			var itemWrapper:Object;
 			if (mod0 && (adjustedIndex == mod0.index) && (mod0.modificationType == CollectionModification.ADD))
-				itemWrapper = getUniqueItemWrapper(item,mod0,adjustedIndex)
+				itemWrapper = getUniqueItemWrapper(item,mod0,adjustedIndex);
 			else
 				itemWrapper = getUniqueItemWrapper(item,cm,adjustedIndex);
 				
@@ -558,13 +555,13 @@ package mx.collections
 	    	switch (event.kind)
 	    	{
 	    		case CollectionEventKind.ADD:
-	    			integrateAddedElements(event, startItemIndex, endItemIndex);
+	    			integrateAddedElements(event);
 	    			break;
 	    		case CollectionEventKind.REMOVE:
-	    			integrateRemovedElements(event, startItemIndex, endItemIndex);
+	    			integrateRemovedElements(event);
 	    			break;
 	    		case CollectionEventKind.REPLACE:
-	    			integrateReplacedElements(event, startItemIndex, endItemIndex);
+	    			integrateReplacedElements(event);
 	    			break;
 	    	}
 	    }
@@ -670,7 +667,7 @@ package mx.collections
 		 *  Currently, this is just based on the <code>showPreserved</code>
 		 *  property.
 		 */
-		private function isActive(mod:CollectionModification):Boolean
+		private function isActive():Boolean
 		{
 			// might eventually have more individual item processing here
 			// if we're showing removed, we have to include this modificatoin
@@ -704,7 +701,7 @@ package mx.collections
 		 *  Does the work of modifying the object to handle a collectionEvent of 
 		 *  collectionEventKind.REMOVE so that the removal can be ignored
 		 */		
-	    private function integrateRemovedElements(event:CollectionEvent, startItemIndex:int, endItemIndex:int):void
+	    private function integrateRemovedElements(event:CollectionEvent):void
 	    {
 	    	var i:int = 0;
 	    	var j:int = 0;
@@ -777,11 +774,10 @@ package mx.collections
 		 *  Does the work of modifying the object to handle a collectionEvent of 
 		 *  collectionEventKind.ADD so that the addition can be ignored
 		 */		
-	    private function integrateAddedElements(event:CollectionEvent, startItemIndex:int, endItemIndex:int):void
+	    private function integrateAddedElements(event:CollectionEvent):void
 	    {
 	    	var i:int = 0;
 	    	var j:int = 0;
-	    	var inserted:Boolean = false;
 	    	var insertCount:int = event.items.length;
 	    	// offset must be used when looking at mod indexes
 	    	var offset:int = 0;
@@ -843,14 +839,11 @@ package mx.collections
 		 *  Does the work of modifying the object to handle a collectionEvent of 
 		 *  collectionEventKind.REPLACE so that the replacement can be ignored
 		 */		
-	    private function integrateReplacedElements(event:CollectionEvent, startItemIndex:int, endItemIndex:int):void
+	    private function integrateReplacedElements(event:CollectionEvent):void
 	    {
 	    	var i:int = 0;
 	    	var j:int = 0;
-	    	var inserted:Boolean = false;
 	    	var insertCount:int = event.items.length;
-	    	// offset must be used when looking at mod indexes
-	    	var offset:int = 0;
 	    	
 	    	// adding is easier than deleting...we just find the
 	    	// right place in our delta array, splice all the modifications,
@@ -938,18 +931,14 @@ import mx.collections.ModifiedCollectionView;
 import mx.collections.CursorBookmark;
 import flash.events.EventDispatcher;
 import mx.collections.IViewCursor;
-import mx.events.CollectionEvent;
 import mx.collections.ICollectionView;
 import mx.core.mx_internal;
-import mx.collections.errors.CursorError;
 import mx.collections.errors.CollectionViewError;
 import mx.collections.errors.ItemPendingError;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
-import mx.events.CollectionEventKind;
 import mx.events.FlexEvent;
 import mx.collections.errors.CursorError;
-import flash.display.InteractiveObject;
 
 use namespace mx_internal;
 

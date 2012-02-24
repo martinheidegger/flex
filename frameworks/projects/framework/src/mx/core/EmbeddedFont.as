@@ -20,7 +20,6 @@
 package mx.core
 {
 
-import flash.text.FontStyle;
 
 [ExcludeClass]
 

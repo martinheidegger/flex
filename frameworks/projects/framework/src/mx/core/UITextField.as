@@ -25,7 +25,6 @@ import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.geom.Matrix;
-import flash.text.TextField;
 import flash.text.TextFieldType;
 import flash.text.TextFormat;
 import flash.text.TextFormatAlign;
@@ -44,15 +43,14 @@ import mx.styles.IStyleClient;
 import mx.styles.IStyleManager2;
 import mx.styles.StyleManager;
 import mx.styles.StyleProtoChain;
-import mx.utils.MatrixUtil;
 import mx.utils.NameUtil;
 import mx.utils.StringUtil;
 
 use namespace mx_internal;
 
-include "../styles/metadata/LeadingStyle.as"
-include "../styles/metadata/PaddingStyles.as"
-include "../styles/metadata/TextStyles.as"
+include "../styles/metadata/LeadingStyle.as";
+include "../styles/metadata/PaddingStyles.as";
+include "../styles/metadata/TextStyles.as";
 
 //--------------------------------------
 //  Excluded APIs
@@ -2201,7 +2199,7 @@ public class UITextField extends FlexTextField
                 var fontModuleFactory:IFlexModuleFactory = (noEmbeddedFonts || !embeddedFontRegistry) ? 
                     null : 
                     embeddedFontRegistry.getAssociatedModuleFactory(
-                        textFormat.font, textFormat.bold, textFormat.italic,
+                        textFormat.font, textFormat.bold != null, textFormat.italic != null,
                         this, moduleFactory, creatingSystemManager(), false);
     
                 embedFonts = (fontModuleFactory != null);

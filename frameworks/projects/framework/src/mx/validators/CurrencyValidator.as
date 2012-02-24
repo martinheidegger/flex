@@ -20,8 +20,6 @@
 package mx.validators
 {
 
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
 
 [ResourceBundle("SharedResources")]
 [ResourceBundle("validators")]
@@ -130,7 +128,7 @@ public class CurrencyValidator extends Validator
         
         // Resource-backed properties of the validator.
         var alignSymbol:String = validator.alignSymbol;
-        var allowNegative:Boolean = validator.allowNegative;        
+        var allowNegative:Boolean = validator.allowNegative != null;
         var currencySymbol:String = validator.currencySymbol;
         var decimalSeparator:String = validator.decimalSeparator;
         var maxValue:Number = Number(validator.maxValue);

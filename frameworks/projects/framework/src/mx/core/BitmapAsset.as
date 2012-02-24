@@ -609,7 +609,7 @@ public class BitmapAsset extends FlexBitmap
     public function get measuredHeight():Number
     {
         if (bitmapData)
-            return bitmapData.height
+            return bitmapData.height;
         
         return 0;
     }

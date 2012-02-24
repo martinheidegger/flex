@@ -24,23 +24,17 @@ import flash.display.LoaderInfo;
 import flash.display.MovieClip;
 import flash.events.ErrorEvent;
 import flash.events.Event;
-import flash.events.IEventDispatcher;
-import flash.events.IOErrorEvent;
-import flash.events.SecurityErrorEvent;
 import flash.events.TimerEvent;
 import flash.system.ApplicationDomain;
 import flash.text.TextField;
 import flash.text.TextFieldAutoSize;
 import flash.utils.Dictionary;
 import flash.utils.Timer;
-import flash.utils.getDefinitionByName;
 
 import mx.core.RSLItem;
 import mx.core.RSLListLoader;
 import mx.events.ModuleEvent;
-import mx.events.Request;
 import mx.events.RSLEvent;
-import mx.managers.SystemManagerGlobals;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
 import mx.utils.LoaderUtil;
@@ -119,7 +113,7 @@ public class FlexModuleFactory extends MovieClip
         loaderInfo.addEventListener(Event.INIT, moduleInitHandler);
 		loaderInfo.addEventListener(Event.COMPLETE, moduleCompleteHandler);
 
-	    var docFrame:int = totalFrames == 1 ? 0 : 1;
+	    totalFrames; // Backwards compatibility, property has been read before
 
         addEventListener(Event.ENTER_FRAME, docFrameListener);
 
@@ -228,7 +222,7 @@ public class FlexModuleFactory extends MovieClip
      *  module factory is loading. Each element of the Array is an 
      *  Array of RSLData.
      */ 
-    private var rslDataList:Array
+    private var rslDataList:Array;
     
 	//--------------------------------------------------------------------------
 	//

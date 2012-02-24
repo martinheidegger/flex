@@ -61,7 +61,7 @@ public class DisplayUtil
 	public static function walkDisplayObjects(displayObject:DisplayObject,
 											  callbackFunction:Function):void
 	{
-		callbackFunction(displayObject)
+		callbackFunction(displayObject);
 
 		if (displayObject is DisplayObjectContainer)
 		{

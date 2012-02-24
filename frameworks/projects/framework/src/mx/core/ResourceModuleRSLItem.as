@@ -20,14 +20,10 @@
 package mx.core
 {
 
-import flash.events.ErrorEvent;
-import flash.events.Event;
 import flash.events.IEventDispatcher;
 import flash.events.IOErrorEvent;
-import flash.events.ProgressEvent;
 import flash.system.ApplicationDomain;
 import mx.events.ResourceEvent;
-import mx.events.RSLEvent;
 import mx.resources.IResourceManager;
 
 [ExcludeClass]

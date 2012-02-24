@@ -447,7 +447,7 @@ public class AsyncListView extends OnDemandEventDispatcher implements IList
      */
     private function defaultCreatePendingItemFunction(index:int, ipe:ItemPendingError):Object
     {
-        return null;        
+        return null;
     }
     
     /**
@@ -510,7 +510,7 @@ public class AsyncListView extends OnDemandEventDispatcher implements IList
      */
     private function defaultCreateFailedItemFunction(index:int, info:Object):Object
     {
-        return null;        
+        return null;
     }
     
     /**

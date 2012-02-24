@@ -26,8 +26,6 @@ import mx.events.CollectionEvent;
 import mx.events.CollectionEventKind;
 import mx.events.PropertyChangeEvent;
 import mx.events.PropertyChangeEventKind;
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
 import mx.utils.IXMLNotifiable;

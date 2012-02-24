@@ -926,7 +926,7 @@ public class ObjectUtil
         var classAlias:String;
         var properties:XMLList;
         var prop:XML;
-        var dynamic:Boolean = false;
+        var dyn:Boolean = false;
         var metadataInfo:Object;
 
         if (typeof(obj) == "xml")
@@ -942,7 +942,7 @@ public class ObjectUtil
             var classInfo:XML = DescribeTypeCache.describeType(obj).typeDescription;
             className = classInfo.@name.toString();
             classAlias = classInfo.@alias.toString();
-            dynamic = (classInfo.@isDynamic.toString() == "true");
+            dyn = (classInfo.@isDynamic.toString() == "true");
 
             if (options.includeReadOnly)
                 properties = classInfo..accessor.(@access != "writeonly") + classInfo..variable;
@@ -953,7 +953,7 @@ public class ObjectUtil
         }
 
         // If type is not dynamic, check our cache for class info...
-        if (!dynamic)
+        if (!dyn)
         {
             cacheKey = getCacheKey(obj, excludes, options);
             result = CLASS_INFO_CACHE[cacheKey];
@@ -965,7 +965,7 @@ public class ObjectUtil
         result["name"] = className;
         result["alias"] = classAlias;
         result["properties"] = propertyNames;
-        result["dynamic"] = dynamic;
+        result["dynamic"] = dyn;
         result["metadata"] = metadataInfo = recordMetadata(properties);
         
         var excludeObject:Object = {};
@@ -992,7 +992,7 @@ public class ObjectUtil
                 propertyNames.push(key);
             }
         }
-        else if (dynamic)
+        else if (dyn)
         {
             for (var p:String in obj)
             {
@@ -1122,7 +1122,7 @@ public class ObjectUtil
         }
 
         // For normal, non-dynamic classes we cache the class info
-        if (!dynamic)
+        if (!dyn)
         {
             cacheKey = getCacheKey(obj, excludes, options);
             CLASS_INFO_CACHE[cacheKey] = result;
@@ -1431,7 +1431,7 @@ public class ObjectUtil
         if (oRef != refs[o])
             refs[o] = oRef;
         
-        return oRef
+        return oRef;
     }
     
     /**

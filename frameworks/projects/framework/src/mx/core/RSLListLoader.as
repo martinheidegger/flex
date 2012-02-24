@@ -20,7 +20,6 @@
 package mx.core
 {
 
-import flash.events.IEventDispatcher;
 import flash.events.Event;
 
 [ExcludeClass]

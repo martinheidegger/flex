@@ -23,7 +23,6 @@ package mx.core
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
-import flash.geom.Rectangle;
 import mx.managers.ISystemManager;
 
 /**

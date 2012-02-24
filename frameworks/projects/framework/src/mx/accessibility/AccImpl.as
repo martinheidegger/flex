@@ -24,7 +24,6 @@ import flash.accessibility.Accessibility;
 import flash.accessibility.AccessibilityImplementation;
 import flash.accessibility.AccessibilityProperties;
 import flash.display.DisplayObject;
-import flash.display.DisplayObjectContainer;
 import flash.events.Event;
 import flash.system.ApplicationDomain;
 
@@ -641,7 +640,7 @@ public class AccImpl extends AccessibilityImplementation
         {
             return c.accessibilityProperties === myAccessibilityProperties;
         };
-        var matchingAncestor:UIComponent = findMatchingAncestor(component.parent, sharesMyAccessibilityProperties)
+        var matchingAncestor:UIComponent = findMatchingAncestor(component.parent, sharesMyAccessibilityProperties);
         if (!matchingAncestor)
             return false;
         return matchingAncestor is skinnableTextBaseClass;
@@ -869,7 +868,7 @@ public class AccImpl extends AccessibilityImplementation
         }
         else
         {
-            accState |= AccConst.STATE_SYSTEM_FOCUSABLE
+            accState |= AccConst.STATE_SYSTEM_FOCUSABLE;
         
             // This sets STATE_SYSTEM_FOCUSED appropriately for simple components
             // and top levels of complex ones, but not for any subparts.

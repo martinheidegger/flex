@@ -29,7 +29,6 @@ import flash.geom.Rectangle;
 import flash.geom.Utils3D;
 import flash.geom.Vector3D;
 import flash.system.ApplicationDomain;
-import flash.utils.getDefinitionByName;
 
 import mx.core.mx_internal;
 
@@ -505,7 +504,7 @@ public final class MatrixUtil
 
 		// Project the corner points
 		var pt1:Vector3D = new Vector3D(bounds.left, bounds.top, 0); 
-		var pt2:Vector3D = new Vector3D(bounds.right, bounds.top, 0) 
+		var pt2:Vector3D = new Vector3D(bounds.right, bounds.top, 0);
 		var pt3:Vector3D = new Vector3D(bounds.left, bounds.bottom, 0);
 		var pt4:Vector3D = new Vector3D(bounds.right, bounds.bottom, 0);
 		pt1 = Utils3D.projectVector(matrix, pt1);
@@ -631,7 +630,7 @@ public final class MatrixUtil
                         actualSize1 = null;
                 }
 
-                var actualSize2:Point
+                var actualSize2:Point;
                 actualSize2 = fitTBoundsHeight(height, matrix,
                                                explicitWidth, explicitHeight,
                                                preferredWidth, preferredHeight,
@@ -1225,7 +1224,6 @@ public final class MatrixUtil
         // Find the range of solutsion for y and pick:
         var x:Number;
         var y:Number;
-        var s:Point;
         
         // Case1: ax + cy >= 0, from (1) above we get:
         // (1) x = (w - cy) / a

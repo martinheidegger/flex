@@ -25,8 +25,6 @@ import flash.events.EventDispatcher;
 import mx.collections.ISort;
 import mx.collections.ISortField;
 import mx.collections.errors.SortError;
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
 import mx.utils.ObjectUtil;
@@ -654,7 +652,6 @@ public class Sort extends EventDispatcher implements ISort
             var fields:Array = this.fields;
             if (fields && fields.length > 0)
             {
-                var i:int;
                 //doing the init value each time may be a little inefficient
                 //but allows for the data to change and the comparators
                 //to update correctly
@@ -788,7 +785,7 @@ public class Sort extends EventDispatcher implements ISort
      *  @playerversion AIR 1.1
      *  @productversion Flex 3
      */
-    private function noFieldsCompare(a:Object, b:Object, fields:Array = null):int
+    private function noFieldsCompare(a:Object, b:Object):int
     {
         if (!defaultEmptyField)
         {

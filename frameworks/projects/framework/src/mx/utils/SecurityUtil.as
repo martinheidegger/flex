@@ -20,8 +20,6 @@
 package mx.utils
 {
 
-import flash.events.IEventDispatcher;
-
 import mx.core.ISWFBridgeProvider;
 
 /**

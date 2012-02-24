@@ -101,7 +101,7 @@ public class XMLNotifier
                     IXMLNotifiable(notifiable).xmlNotification(currentTarget, ty, tar, value, detail);
                 }
             }
-        }
+        };
 
         return notificationFunction;
     }

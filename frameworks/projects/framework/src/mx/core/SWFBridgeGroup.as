@@ -20,7 +20,6 @@
 package mx.core
 {
 	
-import flash.display.DisplayObject;
 import flash.utils.Dictionary;
 import flash.events.EventDispatcher;
 import flash.events.IEventDispatcher;

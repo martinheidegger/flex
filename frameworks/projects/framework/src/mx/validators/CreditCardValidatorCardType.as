@@ -51,7 +51,7 @@ public final class CreditCardValidatorCardType
 	 *  @playerversion AIR 1.1
 	 *  @productversion Flex 3
 	 */
-	public static const MASTER_CARD:String = "MasterCard"
+	public static const MASTER_CARD:String = "MasterCard";
 	
 	/**
 	 *  Specifies the card type as Visa.

@@ -47,8 +47,7 @@ public final class TransformUtil
      *  Returns true if the parameters indicate that AdvancedLayoutFeatures is
      *  needed.
      */
-    private static function needAdvancedLayout(transformCenter:Vector3D,
-                                               scale:Vector3D,
+    private static function needAdvancedLayout(scale:Vector3D,
                                                rotation:Vector3D,
                                                translation:Vector3D,
                                                postLayoutScale:Vector3D,
@@ -99,9 +98,8 @@ public final class TransformUtil
                                            layoutFeatures:AdvancedLayoutFeatures = null, 
                                            initLayoutFeatures:Function = null):void
     {
-        var needAdvancedLayout:Boolean = (layoutFeatures ||
-                                          needAdvancedLayout(transformCenter,
-                                                             scale,
+        var needAdvancedLayout:Boolean = ((layoutFeatures != null) ||
+                                          needAdvancedLayout(scale,
                                                              rotation,
                                                              translation,
                                                              postLayoutScale,

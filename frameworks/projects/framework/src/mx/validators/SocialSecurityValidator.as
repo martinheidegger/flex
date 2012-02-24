@@ -20,8 +20,6 @@
 package mx.validators
 {
 
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
 
@@ -99,7 +97,6 @@ public class SocialSecurityValidator extends Validator
 
 		var resourceManager:IResourceManager = ResourceManager.getInstance();
 
-		var hyphencount:int = 0;
 		var len:int = value.toString().length;
 		var checkForFormatChars:Boolean = false;
 

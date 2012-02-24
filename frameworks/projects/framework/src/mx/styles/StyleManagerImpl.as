@@ -22,13 +22,11 @@ package mx.styles
 
 import flash.display.DisplayObject;
 import flash.events.EventDispatcher;
-import flash.display.LoaderInfo;
 import flash.events.IEventDispatcher;
 import flash.events.TimerEvent;
 import flash.system.ApplicationDomain;
 import flash.system.SecurityDomain;
-import flash.utils.Timer
-import flash.utils.describeType;
+import flash.utils.Timer;
 
 import mx.core.FlexVersion;
 import mx.core.IFlexModuleFactory;
@@ -39,7 +37,7 @@ import mx.events.StyleEvent;
 import mx.managers.ISystemManager;
 import mx.managers.SystemManagerGlobals;
 import mx.modules.IModuleInfo;
-import mx.modules.ModuleManager
+import mx.modules.ModuleManager;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
 import mx.styles.IStyleModule;
@@ -261,7 +259,7 @@ public class StyleManagerImpl extends EventDispatcher implements IStyleManager2
             verticalGap: true,
             wordSpacing:true,
             whitespaceCollapse: true
-        }
+        };
     
     /**
      *  @private
@@ -279,7 +277,7 @@ public class StyleManagerImpl extends EventDispatcher implements IStyleManager2
             right: true,
             top: true,
             verticalCenter: true
-        }
+        };
     
     /**
      *  @private
@@ -297,7 +295,7 @@ public class StyleManagerImpl extends EventDispatcher implements IStyleManager2
             right: true,
             top: true,
             verticalCenter: true
-        }
+        };
     
     /**
      *  @private
@@ -732,10 +730,6 @@ public class StyleManagerImpl extends EventDispatcher implements IStyleManager2
         }
         
         return theSubjects;
-    }
-
-    private function isUnique(element:*, index:int, arr:Array):Boolean {
-        return (arr.indexOf(element) >= 0);
     }
 
     /**
@@ -1853,5 +1847,5 @@ class StyleModuleInfo
     /**
      *  @private
      */
-    public var module:IModuleInfo
+    public var module:IModuleInfo;
 }

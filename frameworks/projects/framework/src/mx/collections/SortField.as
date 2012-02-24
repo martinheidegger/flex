@@ -23,8 +23,6 @@ package mx.collections
 import flash.events.Event;
 import flash.events.EventDispatcher;
 import mx.collections.errors.SortError;
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
 import mx.resources.IResourceManager;
 import mx.resources.ResourceManager;
 import mx.utils.ObjectUtil;
@@ -544,7 +542,6 @@ public class SortField extends EventDispatcher implements ISortField
 
     private function nullCompare(a:Object, b:Object):int
     {
-        var value:Object;
         var left:Object;
         var right:Object;
 
@@ -601,7 +598,7 @@ public class SortField extends EventDispatcher implements ISortField
             if (left is Date || right is Date)
             {
                 found = true;
-                _compareFunction = dateCompare
+                _compareFunction = dateCompare;
             }
         }
         else if (typeLeft == "xml" || typeRight == "xml")

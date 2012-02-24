@@ -31,9 +31,7 @@ import flash.net.URLLoader;
 import flash.net.URLLoaderDataFormat;
 import flash.system.LoaderContext;
 import flash.system.ApplicationDomain;
-import flash.system.LoaderContext;
 import flash.system.Security;
-import flash.system.SecurityDomain;
 import flash.utils.ByteArray;
 //import flash.utils.getTimer;        // PERFORMANCE_INFO
 

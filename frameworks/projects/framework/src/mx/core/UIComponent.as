@@ -42,7 +42,6 @@ import flash.geom.Matrix3D;
 import flash.geom.PerspectiveProjection;
 import flash.geom.Point;
 import flash.geom.Rectangle;
-import flash.geom.Transform;
 import flash.geom.Vector3D;
 import flash.system.ApplicationDomain;
 import flash.system.Capabilities;
@@ -6815,6 +6814,7 @@ public class UIComponent extends FlexSprite
      */
     private function get indexedID():String
     {
+        // @TODO Shouldn't this be protected? How can a private variable be used?
         var s:String = id;
         var indices:Array /* of int */ = instanceIndices;
         if (indices)
@@ -8482,7 +8482,6 @@ public class UIComponent extends FlexSprite
         if (!invalidateSizeFlag)
             return changed;
 
-        var scalingFactor:Number;
         var newValue:Number;
 
         if (canSkipMeasurement())
@@ -10389,7 +10388,7 @@ public class UIComponent extends FlexSprite
         var commonBaseState:String = findCommonBaseState(_currentState, requestedCurrentState);
         var event:StateChangeEvent;
         var oldState:String = _currentState ? _currentState : "";
-        var destination:State = getState(requestedCurrentState);
+        getState(requestedCurrentState); // Backwards compatibility
         var prevTransitionEffect:Object;
         var tmpPropertyChanges:Array;
         
@@ -12440,6 +12439,7 @@ public class UIComponent extends FlexSprite
      */
     private function focusObj_scrollHandler(event:Event):void
     {
+        // TODO: is not linked anywhere: Really used?
         adjustFocusRect();
     }
 

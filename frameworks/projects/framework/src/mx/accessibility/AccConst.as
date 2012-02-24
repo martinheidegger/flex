@@ -1728,7 +1728,7 @@ public final class AccConst
      *  @playerversion AIR 1.5
      *  @productversion Flex 4
      */
-    public static const EVENT_SYSTEM_MINIMIZESTART:uint = 0x0016
+    public static const EVENT_SYSTEM_MINIMIZESTART:uint = 0x0016;
 
     /**
      *  An MSAA event indicating that a window object

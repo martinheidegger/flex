@@ -548,7 +548,7 @@ public class UITextFormat extends TextFormat
         var fontModuleFactory:IFlexModuleFactory = (noEmbeddedFonts || !embeddedFontRegistry) ? 
             null : 
             embeddedFontRegistry.getAssociatedModuleFactory(
-                font, bold, italic, this, moduleFactory, systemManager, useFTE);
+                font, bold != null, italic != null, this, moduleFactory, systemManager, useFTE);
 
         embeddedFont = (fontModuleFactory != null);
         if (fontModuleFactory == null)

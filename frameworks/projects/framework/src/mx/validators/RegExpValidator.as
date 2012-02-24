@@ -21,8 +21,6 @@ package mx.validators
 {
 
 import mx.events.ValidationResultEvent;
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
 
 [ResourceBundle("validators")]
 

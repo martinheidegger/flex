@@ -72,7 +72,7 @@ public class RSLData
     {
         super();
         
-        _rslURL = rslURL
+        _rslURL = rslURL;
         _policyFileURL = policyFileURL;
         _digest = digest;
         _hashType = hashType;

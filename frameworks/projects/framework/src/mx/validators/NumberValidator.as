@@ -20,9 +20,6 @@
 package mx.validators
 {
 
-import mx.managers.ISystemManager;
-import mx.managers.SystemManager;
-
 [ResourceBundle("validators")]
 
 [Alternative(replacement="spark.validators.NumberValidator", since="4.5")]
@@ -75,8 +72,8 @@ public class NumberValidator extends Validator
 {
 	include "../core/Version.as";
 
-    /**
-     *  Convenience method for calling a validator
+	/**
+	 *  Convenience method for calling a validator
 	 *  from within a custom validation function.
 	 *  Each of the standard Flex validators has a similar convenience method.
 	 *
@@ -84,7 +81,7 @@ public class NumberValidator extends Validator
 	 *
 	 *  @param value A field to validate.
 	 *
-     *  @param baseField Text representation of the subfield
+	 *  @param baseField Text representation of the subfield
 	 *  specified in the <code>value</code> parameter.
 	 *  For example, if the <code>value</code> parameter specifies value.number,
 	 *  the <code>baseField</code> value is "number".
@@ -93,20 +90,20 @@ public class NumberValidator extends Validator
 	 *  object for each field examined by the validator. 
 	 *
 	 *  @see mx.validators.ValidationResult
-     *  
-     *  @langversion 3.0
-     *  @playerversion Flash 9
-     *  @playerversion AIR 1.1
-     *  @productversion Flex 3
-     */
-    public static function validateNumber(validator:NumberValidator,
+	 *  
+	 *  @langversion 3.0
+	 *  @playerversion Flash 9
+	 *  @playerversion AIR 1.1
+	 *  @productversion Flex 3
+	 */
+	public static function validateNumber(validator:NumberValidator,
 										  value:Object,
 										  baseField:String):Array
-    {
+	{
 		var results:Array = [];
 
 		// Resource-backed properties of the validator.
-		var allowNegative:Boolean = validator.allowNegative;		
+		var allowNegative:Boolean = validator.allowNegative != null;		
 		var decimalSeparator:String = validator.decimalSeparator;
 		var domain:String = validator.domain;	
 		var maxValue:Number = Number(validator.maxValue);
@@ -114,26 +111,26 @@ public class NumberValidator extends Validator
 		var precision:int = int(validator.precision);
 		var thousandsSeparator:String = validator.thousandsSeparator;
 
-        var input:String = String(value);
-        var len:int = input.length;
+		var input:String = String(value);
+		var len:int = input.length;
 
-        var isNegative:Boolean = false;
+		var isNegative:Boolean = false;
 		
 		var i:int;
 		var c:String;
 
-        // Make sure the formatting character parameters are unique,
+		// Make sure the formatting character parameters are unique,
 		// are not digits or the negative sign,
 		// and that the separators are one character.
-        var invalidFormChars:String = DECIMAL_DIGITS + "-";
+		var invalidFormChars:String = DECIMAL_DIGITS + "-";
 
-        if (decimalSeparator == thousandsSeparator ||
-            invalidFormChars.indexOf(decimalSeparator) != -1 ||
-            invalidFormChars.indexOf(thousandsSeparator) != -1 ||
-            decimalSeparator.length != 1 ||
-            thousandsSeparator.length != 1)
-        {
-            results.push(new ValidationResult(
+		if (decimalSeparator == thousandsSeparator ||
+			invalidFormChars.indexOf(decimalSeparator) != -1 ||
+			invalidFormChars.indexOf(thousandsSeparator) != -1 ||
+			decimalSeparator.length != 1 ||
+			thousandsSeparator.length != 1)
+		{
+			results.push(new ValidationResult(
 				true, baseField, "invalidFormatChar",
 				validator.invalidFormatCharsError));
 			return results;

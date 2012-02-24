@@ -447,7 +447,7 @@ public class Flex
 		} 
 		while (!done);
 
-		return Math.max(0, Math.floor((spaceToDistribute + unused) - flexConsumed))
+		return Math.max(0, Math.floor((spaceToDistribute + unused) - flexConsumed));
 	}
 	
 	/**
@@ -538,7 +538,7 @@ public class Flex
 			{
 				child = IUIComponent(parent.getChildAt(i));
 				childHeight = child.height;
-				percentHeight = child.percentHeight
+				percentHeight = child.percentHeight;
 				
 				// if they have a percentHeight, and we won't reach their
 				// maxHeight by giving them one more pixel, then 
@@ -651,7 +651,7 @@ public class Flex
 			{
 				child = IUIComponent(parent.getChildAt(i));
 				childWidth = child.width;
-				percentWidth = child.percentWidth
+				percentWidth = child.percentWidth;
 				
 				// if they have a percentWidth, and we won't reach their
 				// maxWidth by giving them one more pixel, then 
